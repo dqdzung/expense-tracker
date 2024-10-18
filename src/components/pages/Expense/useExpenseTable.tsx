@@ -10,14 +10,14 @@ import {
 	ColumnDef,
 } from "@tanstack/react-table";
 import { useState } from "react";
-import { Eye } from "lucide-react";
 import { ExpenseItem } from "./types";
-import HeaderWithSort from "./HeaderWithSort";
-import StatusBadge from "./StatusBadge";
-import { Link } from "react-router-dom";
 
 // Replace import with api call
-import data from "../../expenses.json";
+import data from "@/expenses.json";
+import HeaderWithSort from "./components/HeaderWithSort";
+import StatusBadge from "./components/StatusBadge";
+import ExpenseDetailButton from "./components/ExpenseDetailButton";
+import { formatCurrency } from "@/lib/utils";
 
 export const useExpenseTable = () => {
 	const [sorting, setSorting] = useState<SortingState>([
@@ -49,6 +49,12 @@ export const useExpenseTable = () => {
 			columnVisibility,
 			rowSelection,
 		},
+		initialState: {
+			pagination: {
+				pageIndex: 0,
+				pageSize: 10,
+			},
+		},
 	});
 	return table;
 };
@@ -69,15 +75,11 @@ export const columns: ColumnDef<ExpenseItem>[] = [
 	{
 		accessorKey: "amount",
 		header: ({ column }) => <HeaderWithSort column={column} label="Amount" />,
-		cell: ({ row }) => {
-			const amount = parseFloat(row.getValue("amount"));
-			const formatted = new Intl.NumberFormat("en-US", {
-				style: "currency",
-				currency: "USD",
-			}).format(amount);
-
-			return <div className=" text-green-500">{formatted}</div>;
-		},
+		cell: ({ row }) => (
+			<div className=" text-green-500">
+				{formatCurrency(row.getValue("amount"))}
+			</div>
+		),
 	},
 	{
 		accessorKey: "detail",
@@ -99,12 +101,8 @@ export const columns: ColumnDef<ExpenseItem>[] = [
 		enableHiding: false,
 		cell: ({ row }) => {
 			const expense = row.original;
-
-			return (
-				<Link to={`/expenses/${expense.id}`}>
-					<Eye className="h-4 w-4" />
-				</Link>
-			);
+			return <ExpenseDetailButton data={expense} />;
 		},
 	},
 ];
+

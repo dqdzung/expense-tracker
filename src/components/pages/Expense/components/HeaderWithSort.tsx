@@ -1,7 +1,7 @@
 import { ArrowUp, ArrowDown } from "lucide-react";
-import { Button } from "../ui/button";
 import { Column } from "@tanstack/react-table";
-import { ExpenseItem } from "./types";
+import { ExpenseItem } from "../types";
+import { Button } from "@/components/ui/button";
 
 const HeaderWithSort = ({
 	column,
@@ -29,3 +29,4 @@ const HeaderWithSort = ({
 };
 
 export default HeaderWithSort;
+

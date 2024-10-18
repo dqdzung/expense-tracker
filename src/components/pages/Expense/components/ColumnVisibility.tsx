@@ -3,17 +3,17 @@ import {
 	DropdownMenuCheckboxItem,
 	DropdownMenuContent,
 	DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Button } from "../ui/button";
-import { ChevronDown } from "lucide-react";
+} from "@/components/ui/dropdown-menu";
 import { Table } from "@tanstack/react-table";
-import { ExpenseItem } from "./types";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
+import { ExpenseItem } from "../types";
 
 const ColumnVisibility = ({ table }: { table: Table<ExpenseItem> }) => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="outline" className="ml-auto">
+				<Button variant="outline">
 					Columns <ChevronDown className="ml-2 h-4 w-4" />
 				</Button>
 			</DropdownMenuTrigger>
@@ -39,3 +39,4 @@ const ColumnVisibility = ({ table }: { table: Table<ExpenseItem> }) => {
 };
 
 export default ColumnVisibility;
+

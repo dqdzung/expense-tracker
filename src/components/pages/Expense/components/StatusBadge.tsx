@@ -1,6 +1,6 @@
-import { EnumStatus } from "./types";
-import { Badge } from "../ui/badge";
 import { useMemo } from "react";
+import { EnumStatus } from "../types";
+import { Badge } from "@/components/ui/badge";
 
 const StatusBadge = ({ value }: { value: EnumStatus }) => {
 	const props = useMemo(() => {
@@ -35,3 +35,4 @@ const StatusBadge = ({ value }: { value: EnumStatus }) => {
 };
 
 export default StatusBadge;
+

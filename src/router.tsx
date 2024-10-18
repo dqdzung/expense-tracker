@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import AppLayout from "./components/AppLayout";
-import PageSettings from "./components/PageSettings";
-import PageDashboard from "./components/PageDashboard";
-import PageExpense from "./components/PageExpense";
-import PageExpenseDetail from "./components/PageExpenseDetail";
+import AppLayout from "./components/layout";
+import PageDashboard from "./components/pages/Dashboard";
+import PageExpense from "./components/pages/Expense";
 
 export const appRouter = createBrowserRouter([
 	{
@@ -18,14 +16,7 @@ export const appRouter = createBrowserRouter([
 				path: "/expenses",
 				element: <PageExpense />,
 			},
-			{
-				path: "/expenses/:expenseId",
-				element: <PageExpenseDetail />,
-			},
-			{
-				path: "/settings",
-				element: <PageSettings />,
-			},
 		],
 	},
 ]);
+

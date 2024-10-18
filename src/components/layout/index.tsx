@@ -1,30 +1,11 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavLinks from "./NavLinks";
+import ThemeToggle from "./ThemeToggle";
 
 export default function AppLayout() {
-	const [darkMode, setDarkMode] = useState(false);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-	useEffect(() => {
-		const isDarkMode = localStorage.getItem("darkMode") === "true";
-		setDarkMode(isDarkMode);
-	}, []);
-
-	useEffect(() => {
-		document.documentElement.classList.toggle("dark", darkMode);
-		localStorage.setItem("darkMode", darkMode.toString());
-	}, [darkMode]);
-
-	useEffect(() => {
-		document.documentElement.classList.toggle("dark", darkMode);
-		localStorage.setItem("darkMode", darkMode.toString());
-	}, [darkMode]);
-
-	const toggleDarkMode = () => {
-		setDarkMode(!darkMode);
-	};
 
 	const toggleMobileMenu = () => {
 		setMobileMenuOpen(!mobileMenuOpen);
@@ -49,24 +30,13 @@ export default function AppLayout() {
 						Expense Tracker
 					</h1>
 				</div>
-				<div className="flex items-center space-x-4">
-					<button
-						onClick={toggleDarkMode}
-						className="rounded-full bg-gray-200 dark:bg-gray-700 p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
-					>
-						{darkMode ? (
-							<Sun className="h-5 w-5" />
-						) : (
-							<Moon className="h-5 w-5" />
-						)}
-					</button>
-				</div>
+				<ThemeToggle />
 			</header>
 			<div className="flex flex-1 overflow-hidden">
 				<nav
 					className={`${
 						mobileMenuOpen ? "block" : "hidden"
-					} lg:block w-64 bg-white dark:bg-gray-800 p-6 shadow absolute lg:relative z-10 h-full lg:h-auto`}
+					} lg:block w-56 bg-white dark:bg-gray-800 p-6 shadow absolute lg:relative z-10 h-[calc(100%-68px)] lg:h-auto`}
 				>
 					<NavLinks />
 				</nav>
@@ -77,3 +47,4 @@ export default function AppLayout() {
 		</div>
 	);
 }
+

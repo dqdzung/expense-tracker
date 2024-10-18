@@ -11,9 +11,7 @@ const PageExpense = () => {
 
 	return (
 		<div className="w-full text-zinc-900 dark:text-zinc-300">
-			<span className="text-xl font-bold">Expenses</span>
 			{/* Filter */}
-			{/* <div className="flex items-center justify-between py-4 gap-2"> */}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-2 py-2">
 				<Input
 					placeholder="Filter employee..."
@@ -62,5 +60,4 @@ const PageExpense = () => {
 };
 
 export default PageExpense;
-
 

@@ -11,8 +11,9 @@ const PageExpense = () => {
 
 	return (
 		<div className="w-full text-zinc-900 dark:text-zinc-300">
+			<span className="text-xl font-bold">Expenses</span>
 			{/* Filter */}
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-2 py-2">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-2 py-3">
 				<Input
 					placeholder="Filter employee..."
 					value={
@@ -34,7 +35,7 @@ const PageExpense = () => {
 			<div className="rounded-md border max-h-900 overflow-auto">
 				<ExpenseTable table={table} />
 			</div>
-			<div className="flex items-center justify-between space-x-2 py-4">
+			<div className="flex items-center justify-between space-x-2 py-2">
 				<span>{table.getFilteredRowModel().rows.length} record(s)</span>
 				<div className="space-x-2">
 					<Button

@@ -82,7 +82,7 @@ export function CategoryChart() {
 	return (
 		<ChartContainer
 			config={chartConfig}
-			className="mx-auto aspect-square max-h-[300px]"
+			className="mx-auto aspect-square max-h-[350px]"
 		>
 			<PieChart>
 				<Pie

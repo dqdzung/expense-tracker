@@ -39,7 +39,7 @@ const PageDashboard = () => {
 				/>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
 				<Card>
 					<CardHeader className="p-4">
 						<CardTitle>Spending by month</CardTitle>
